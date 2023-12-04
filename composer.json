@@ -1,0 +1,18 @@
+{
+    "name": "freddy.martinez/mail",
+    "description": "mailing",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "FreddyMartinez\\Mail\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fredy Martinez",
+            "email": "fredy.martinez@gmail.com"
+        }
+    ]
+}
