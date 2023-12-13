@@ -36,6 +36,7 @@ $template = "template-3/index.html";
     $errorMessage = "$allErrors";
   } else {
     $toEmail = 'fredy.martinez@babilonia.io';
+    #$toEmail = 'tex.97@hotmail.com';
     $emailSubject = "Template ".time();
 
       // Create a new PHPMailer instance
@@ -58,6 +59,7 @@ $template = "template-3/index.html";
             $mail->AddEmbeddedImage('./assets/images/etiqueta.png', 'etiqueta', 'etiqueta.png');
             $mail->AddEmbeddedImage('./assets/images/pointer.png', 'pointer', 'pointer.png');
             $mail->AddEmbeddedImage('./assets/images/dollar.png', 'dollar', 'dollar.png');
+            $mail->AddEmbeddedImage('./assets/images/departamento.jpg', 'departamento', 'departamento.png');
             $mail->isHTML(true);
             $mail->Body = file_get_contents($template);
 

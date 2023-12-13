@@ -111,8 +111,7 @@
     ------------------------------------- */
     
     .btn {
-      box-sizing: border-box;
-      min-width: 100% !important;
+      box-sizing: border-box;      
       width: 100%;
     }
     
@@ -177,11 +176,13 @@
         padding-left: 48px;
         color: #ffffff;
     }
+    .title h1 {
+        font-size: 1em;
+    }
     .title span{
         color: #ff4069;
     }
     .title-message{
-        border-top: 2px solid #28a7b5;
         background-color: #083766;
         padding-top: 6px;
         padding-bottom: 18px;
@@ -209,6 +210,11 @@
         font-weight: bold;
         margin-top: 1rem;
     }
+    .line{
+        display: block;
+        border-top: 2px solid #28a7b5;
+        width: 100%;
+    }
     .row {
         margin: 0 auto;
         min-width: 320px;
@@ -232,7 +238,61 @@
         display:block;
         margin:auto
     }
+    .card td{
+        padding-right: 12px;
+        padding-left: 24px;
+    }
+    .card h3{
+        font: small/1.5 Arial,Helvetica,sans-serif;
+        font-size: 22px;
+        color: #083766;
+        line-height: 1;
+        font-weight: bold;
+    }
+    .card p{
+        font: small/1.5 Arial,Helvetica,sans-serif;
+        font-size: 14px;
+    }
+    .card img{
+        max-width: 100%;
+        width: 100%;
+        border-radius: 32px;
+        object-fit: cover;
+        height: 195px;
+    }
+    .card a{
+        display: block;
+        width: auto;
+        text-decoration: none ;
+    }
+    .card .btn{
+        background-color: #ff4069;
+        border-radius: 50px;
+        border: 2px solid #ff4069;
+        color: #ffffff;
+        display: block;
+        font-family: Calibri,sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        padding: 16px 28px;
+        text-decoration: none;
+        min-width: 30px;
+        text-align: center;
+        direction: ltr;
+        letter-spacing: 0px;
+
+        background-color: #ff4069;
+        border-radius: 50px;
+        text-align: center;
+
+        width: auto;
+        display: inline-block;
+    }
     @media only screen and (min-width: 620px) {
+        .title h1{
+            font-size: 2em;
+        }
         .row {
           width: 600px !important;
         }
@@ -243,6 +303,9 @@
           vertical-align: top;
         }
       
+        .row .col-2 {
+            width: 300px !important;
+        }
         .row .col-3 {
             width: 220px !important;
         }
@@ -324,8 +387,7 @@
     
     @media only screen and (max-width: 660px) {
       .main p,
-      .main td,
-      .main span {
+      .main td {
         font-size: 16px !important;
       }
       .wrapper {
@@ -428,6 +490,7 @@
                         <div class="title">
                             <h1 style="text-align: center;">Nuestra selecci&oacute;n para <span>Juan</span></h1>
                         </div>
+                        <div class="line"></div>
                         <div class="title-message">
                             <h3>Sabemos que encontrar tu inmueble so&ntilde;ado no es una</h3>
                             <h3>tarea f&aacute;cil y queremos hacerte la vida m&aacute;s sencilla.</h3>
@@ -478,7 +541,169 @@
                                 </table>
                             </div>                                          
                         </div>
-                        
+                        <div class="line"></div>
+                        <div class="row" style="margin-top: 1.5rem;">
+                            <div class="col col-2">
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><a href="#"><span class="btn">Ver inmueble</span></a></p>   
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                            <div class="col col-2">
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><a href="#"><span class="btn">Ver inmueble</span></a></p>   
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-2">
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><a href="#"><span class="btn">Ver inmueble</span></a></p>   
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                            <div class="col col-2">
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><a href="#"><span class="btn">Ver inmueble</span></a></p>   
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-2">
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><a href="#"><span class="btn">Ver inmueble</span></a></p>   
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                            <div class="col col-2">
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p><a href="#"><span class="btn">Ver inmueble</span></a></p>   
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                        </div>
                         <!-- header -->
                         <div style="display: none;">
 
