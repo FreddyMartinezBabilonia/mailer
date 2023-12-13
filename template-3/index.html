@@ -265,7 +265,7 @@
         width: auto;
         text-decoration: none ;
     }
-    .card .btn{
+    .btn{
         background-color: #ff4069;
         border-radius: 50px;
         border: 2px solid #ff4069;
@@ -288,6 +288,44 @@
 
         width: auto;
         display: inline-block;
+    }
+    .message-2{
+      background-color: #083766;
+      padding-top: 28px;
+      padding-bottom: 28px;
+      padding-right: 48px;
+      padding-left: 48px;
+    }
+    .message-2 p{
+      color: #ffffff;
+      text-align: center;
+      font: small/1.5 Arial,Helvetica,sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .message-3{
+      background-color: #e6ebf0;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      padding-right: 0rem;
+      padding-left: 0rem;
+    }
+    .message-3 h3{
+      text-align: left;
+      font-size: 22px;
+      color: #083766;
+      font-family: Calibri,sans-serif;
+    }
+    .message-3 img{
+      width: 100%;
+      max-width: 100%;
+    }
+    .brand{
+      background-color: #083766;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-right: 0;
+      padding-left: 0;
     }
     @media only screen and (min-width: 620px) {
         .title h1{
@@ -434,6 +472,19 @@
       .row {
         width: 100% !important;
       }
+      .message-3 img{
+        max-width: 250px;
+        margin: auto;
+      }
+      .brand .logo{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+
+      }
+      .promotion{
+        margin-top: 1rem;
+      }
     }
     /* -------------------------------------
         PRESERVE THESE STYLES IN THE HEAD
@@ -478,7 +529,7 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+            <span class="preheader">Este es un mensaje de prueba.</span>
 
             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="main">
 
@@ -703,6 +754,36 @@
                                     </tr>                                    
                                 </table>
                             </div>
+                        </div>
+
+                        <div class="message-2">
+                          <p>Vis&iacute;tanos en <a href="https://babilonia.io/">babilonia.pe</a> para encontrar</p>
+                          <p>miles de inmuebles ideales para ti</p>
+                        </div>
+                        <div class="row message-3">
+                          <div class="col col-2">
+                            <h3 style="padding-top: 24px; padding-bottom: 12px; padding-right: 16px; padding-left: 36px;">¿Sigues sin encontrar lo que buscas?</h3>
+                            <a href="https://babilonia.io/"><span class="btn">Descubre m&aacute;s inmuebles</span></a>
+                          </div>
+                          <div class="col col-2" style="    padding-top: 12px; padding-bottom: 12px; padding-right: 12px; padding-left: 0;">
+                            <img src="cid:promotion" class="promotion" width="294" height="">
+                          </div>
+                        </div>
+                        <div class="row brand">
+                          <div class="col col-2" style="padding-left: 1rem;">
+                            <img src="cid:logo" class="logo" width="188px" alt="">
+                          </div>
+                          <div class="col col-2" style="padding-right: 1rem;">
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td><a href="https://www.facebook.com/babilonia.io"><img src="cid:facebook" width="24px" height="24px" alt=""></a></td>
+                                  <td><a href="https://www.instagram.com/babilonia.io/"><img src="cid:instagram" width="24px" height="24px" alt=""></a></td>
+                                  <td><a href="https://babilonia.io/"><img src="cid:website" width="24px" height="24px" alt=""></a></td>
+                                </tr>
+                              </tbody>
+                          </table>
+                          </div>
                         </div>
                         <!-- header -->
                         <div style="display: none;">

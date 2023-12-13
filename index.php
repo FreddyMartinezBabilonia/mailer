@@ -37,13 +37,14 @@ $template = "template-3/index.html";
   } else {
     $toEmail = 'fredy.martinez@babilonia.io';
     #$toEmail = 'tex.97@hotmail.com';
-    $emailSubject = "Template ".time();
+    $emailSubject = "Babilonia ".time();
 
       // Create a new PHPMailer instance
         $mail = new PHPMailer(true);
         try {
             // Configure the PHPMailer instance
             $mail->isSMTP();
+            $mail->CharSet = "UTF-8";
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'fredy.martinez@babilonia.io';
@@ -52,7 +53,7 @@ $template = "template-3/index.html";
             $mail->Port = 587;
 
             // Set the sender, recipient, subject, and body of the message
-            $mail->setFrom($email);
+            $mail->setFrom($email, "Babilonia");
             $mail->addAddress($toEmail);
             $mail->Subject = $emailSubject;
             $mail->AddEmbeddedImage('./assets/images/home.png', 'home', 'home.png');
@@ -60,6 +61,11 @@ $template = "template-3/index.html";
             $mail->AddEmbeddedImage('./assets/images/pointer.png', 'pointer', 'pointer.png');
             $mail->AddEmbeddedImage('./assets/images/dollar.png', 'dollar', 'dollar.png');
             $mail->AddEmbeddedImage('./assets/images/departamento.jpg', 'departamento', 'departamento.png');
+            $mail->AddEmbeddedImage('./assets/images/promotion.png', 'promotion', 'promotion.png');
+            $mail->AddEmbeddedImage('./assets/images/logo.png', 'logo', 'logo.png');
+            $mail->AddEmbeddedImage('./assets/images/facebook.png', 'facebook', 'facebook.png');
+            $mail->AddEmbeddedImage('./assets/images/instagram.png', 'instagram', 'instagram.png');
+            $mail->AddEmbeddedImage('./assets/images/website.png', 'website', 'website.png');
             $mail->isHTML(true);
             $mail->Body = file_get_contents($template);
 
