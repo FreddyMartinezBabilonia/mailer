@@ -10,8 +10,9 @@ $errorMessage = '';
 $successMessage = '';
 $siteKey = ''; // reCAPTCHA site key
 $secret = ''; // reCAPTCHA secret key
+$template = "template-3/index.html";
 #$template = "template-2/index.html";
-$template = "template.html";
+#$template = "template.html";
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = sanitizeInput($_POST['name']??'Fredy');
     $email = sanitizeInput($_POST['email']??"ivan.rivas@babilonia.io");
@@ -31,8 +32,8 @@ $template = "template.html";
   }
 
   if (!empty($errors)) {
-    $allErrors = join('<br/>', $errors);
-    $errorMessage = "<p style='color: red;'>{$allErrors}</p>";
+    $allErrors = join('|', $errors);
+    $errorMessage = "$allErrors";
   } else {
     $toEmail = 'fredy.martinez@babilonia.io';
     $emailSubject = "Template ".time();
@@ -53,18 +54,20 @@ $template = "template.html";
             $mail->setFrom($email);
             $mail->addAddress($toEmail);
             $mail->Subject = $emailSubject;
+            $mail->AddEmbeddedImage('./assets/images/home.png', 'home', 'home.png');
+            $mail->AddEmbeddedImage('./assets/images/etiqueta.png', 'etiqueta', 'etiqueta.png');
+            $mail->AddEmbeddedImage('./assets/images/pointer.png', 'pointer', 'pointer.png');
+            $mail->AddEmbeddedImage('./assets/images/dollar.png', 'dollar', 'dollar.png');
             $mail->isHTML(true);
             $mail->Body = file_get_contents($template);
 
             // Send the message
             $mail->send();
 
-            $successMessage = "<p style='color: green;'>Thank you for contacting us :)</p>";
+            $successMessage = "Thank you for contacting us :)";
         } catch (Exception $e) {
-            echo "<pre>";
-            print_r($e);
-            echo "</pre>";
-      $errorMessage = "<p style='color: red;'>Oops, something went wrong. Please try again later</p>";
+          print_r($e);
+          $errorMessage = "Oops, something went wrong. Please try again later";
     }
   }
 // }
@@ -76,43 +79,6 @@ function sanitizeInput($input) {
    return $input;
 }
 
+echo((!empty($errorMessage)) ? $errorMessage : '');
+echo((!empty($successMessage)) ? $successMessage : '');
 ?>
-
-<html>
-  <body>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <form action="/"method="post" id="contact-form">
-      <h2>Contact us</h2>
-      <?php echo((!empty($errorMessage)) ? $errorMessage : '') ?>
-      <?php echo((!empty($successMessage)) ? $successMessage : '') ?>
-      <p>
-        <label>First Name:</label>
-        <input name="name" type="text" required />
-      </p>
-      <p>
-        <label>Email Address:</label>
-        <input style="cursor: pointer;" name="email" type="email" required />
-      </p>
-      <p>
-        <label>Message:</label>
-        <textarea name="message" required></textarea>
-      </p>
-      <p>
-        <button
-        class="g-recaptcha"
-        type="submit"
-        data-sitekey="<?php echo $siteKey ?>"
-        data-callback='onRecaptchaSuccess'
-        >
-          Submit
-        </button>
-      </p>
-    </form>
-
-    <script>
-    function onRecaptchaSuccess() {
-      document.getElementById('contact-form').submit();
-    }
-    </script>
-  </body>
-</html>
