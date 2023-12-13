@@ -36,6 +36,7 @@ $template = "template-3/index.html";
     $errorMessage = "$allErrors";
   } else {
     $toEmail = 'fredy.martinez@babilonia.io';
+    #$toEmail = 'julio.lopez@babilonia.io';
     #$toEmail = 'tex.97@hotmail.com';
     $emailSubject = "Babilonia ".time();
 

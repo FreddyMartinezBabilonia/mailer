@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
     }
     
     table {
-      border-collapse: separate;
+      border-collapse: collapse;
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
       width: 100%;
@@ -28,7 +28,7 @@
     table td {
       font-family: Helvetica, sans-serif;
       font-size: 16px;
-      vertical-align: top;
+      vertical-align: center;
     }
     /* -------------------------------------
         BODY & CONTAINER
@@ -189,12 +189,13 @@
         padding-right: 48px;
         padding-left: 48px;
     }
-    .title-message h3{
+    .title-message p{
         color: #ffffff;
         font-family: Calibri,sans-serif;
         text-align: center;
         font-size: 16px;
         font-weight: normal;
+        margin: 8px 0px;
     }
     .subtitle{
         background-color: #e6ebf0;
@@ -211,9 +212,18 @@
         margin-top: 1rem;
     }
     .line{
-        display: block;
-        border-top: 2px solid #28a7b5;
+        border: 1px solid #28a7b5 !important;
+        height: 1px;
+        line-height: 0px;
+        /*
         width: 100%;
+        margin: 0px;
+        margin-top: 0px;        
+        height:0px;
+        padding:0px;
+        border-spacing: 0 !important;
+        line-height: 0px;margin:0px
+        */
     }
     .row {
         margin: 0 auto;
@@ -523,6 +533,21 @@
       }
     }
     </style>
+    <!--[if mso]>
+    <style type="text/css">
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+    .title { padding:20px 18px; }
+    .title h1 { margin:0px;padding:0px; font-size:24px }
+    .title-message p{font-size:16px}
+    .subtitle p{margin:0px;padding:0px}
+    .line{ height:0px !important; mso-line-height-rule:exactly;}
+    </style>
+   <![endif]-->
   </head>
   <body>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
@@ -538,20 +563,37 @@
 
                 <!-- START MAIN CONTENT AREA -->
                 <tr>
-                    <td class="wrapper">
+                    <td class="wrapper" style="max-width: 660px;">
+
+                        <table border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td class="title" align="center">
+                              <h1>Nuestra selecci&oacute;n para <span>Juan</span></h1>
+                            </td>
+                          </tr>
+                        </table>
+                        <table>
+                          <tr><td class="line"></td></tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0">
+                          <!-- <tr><td class="line">&nbsp;</td></tr> -->
+                          <tr>
+                            <td class="title-message" align="center">
+                              <p>Sabemos que encontrar tu inmueble so&ntilde;ado no es una</p>
+                              <p>tarea f&aacute;cil y queremos hacerte la vida m&aacute;s sencilla.</p>
+                            </td>
+                          </tr>                          
+                        </table>
+
+                        <table class="subtitle" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td>
+                              <p>Tenemos nuevos inmuebles que cumplen con tu b&uacute;squeda</p>
+                            </td>
+                          </tr>
+                        </table>
 
                         <!-- header -->
-                        <div class="title">
-                            <h1 style="text-align: center;">Nuestra selecci&oacute;n para <span>Juan</span></h1>
-                        </div>
-                        <div class="line"></div>
-                        <div class="title-message">
-                            <h3>Sabemos que encontrar tu inmueble so&ntilde;ado no es una</h3>
-                            <h3>tarea f&aacute;cil y queremos hacerte la vida m&aacute;s sencilla.</h3>
-                        </div>
-                        <div class="subtitle">
-                            <p>Tenemos nuevos inmuebles que cumplen con tu b&uacute;squeda</p>
-                        </div>
                         
                         <div class="row" style="padding: 1rem 0px;">        
                             <div class="col col-3">
