@@ -1,8 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
+    <!--[if gte mso 9]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<![endif]-->
     <title>Simple Transactional Email</title>
     <style media="all" type="text/css">
     /* -------------------------------------
@@ -212,18 +224,9 @@
         margin-top: 1rem;
     }
     .line{
-        border: 1px solid #28a7b5 !important;
+        border-bottom: 1px solid #28a7b5 !important;
         height: 1px;
         line-height: 0px;
-        /*
-        width: 100%;
-        margin: 0px;
-        margin-top: 0px;        
-        height:0px;
-        padding:0px;
-        border-spacing: 0 !important;
-        line-height: 0px;margin:0px
-        */
     }
     .row {
         margin: 0 auto;
@@ -241,6 +244,14 @@
     }
     .row .col-10 {
         width: 600px !important;
+    }
+    /*
+    .main-icon{background: red;}
+    .main-icon .row .col-3{padding: 1rem 0px;}
+    */
+    .box-icon{
+      margin: 1rem auto;
+
     }
     .title-icon{
         font-size:14px;
@@ -366,6 +377,7 @@
         .row .col-10 {
             width: 600px !important;
         }
+        .box-icon,
         .title-icon{
             max-width:87px;
         }
@@ -541,13 +553,32 @@
       mso-table-lspace: 0pt !important;
       mso-table-rspace: 0pt !important;
     }
-    .title { padding:20px 18px; }
-    .title h1 { margin:0px;padding:0px; font-size:24px }
-    .title-message p{font-size:16px}
-    .subtitle p{margin:0px;padding:0px}
-    .line{ height:0px !important; mso-line-height-rule:exactly;}
+    .title { 
+      padding:20px 18px;
+    }
+    .title h1 { 
+      margin:0px;
+      padding:0px;
+      font-size:24px 
+    }
+    .title-message p{
+      font-size:16px
+    }
+    .subtitle p{
+      margin:0px;
+      padding:0px
+    }
+    .title-icon{
+        font-size:14px;
+        font-family:Arial,Helvetica,sans-serif;
+        margin:auto;
+        margin-top:10px;
+        margin-bottom:0px;
+        width:20px;
+    }
     </style>
    <![endif]-->
+
   </head>
   <body>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
@@ -565,16 +596,14 @@
                 <tr>
                     <td class="wrapper" style="max-width: 660px;">
 
-                        <table border="0" cellpadding="0" cellspacing="0">
+                        <table border="0" cellpadding="0" cellspacing="0" class="line" style="background-color: #083766;">
                           <tr>
                             <td class="title" align="center">
                               <h1>Nuestra selecci&oacute;n para <span>Juan</span></h1>
                             </td>
                           </tr>
                         </table>
-                        <table>
-                          <tr><td class="line"></td></tr>
-                        </table>
+
                         <table border="0" cellpadding="0" cellspacing="0">
                           <!-- <tr><td class="line">&nbsp;</td></tr> -->
                           <tr>
@@ -594,56 +623,93 @@
                         </table>
 
                         <!-- header -->
-                        
-                        <div class="row" style="padding: 1rem 0px;">        
-                            <div class="col col-3">
-                                <table>
-                                    <tr>
-                                        <td><img height="43" width="auto" src="cid:home" alt=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="title-icon">Terreno industrial</span></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col col-3">
-                                <table>
-                                    <tr>
-                                        <td><img height="43" width="auto" src="cid:etiqueta" alt=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="title-icon">Alquiler</span></td>
-                                    </tr>
-                                </table>                                
-                            </div>
-                            <div class="col col-3">
-                                <table>
-                                    <tr>
-                                        <td><img height="43" width="auto" src="cid:pointer" alt=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="title-icon">Villa Mar&iacute;a del triunfo</span></td>
-                                    </tr>
-                                </table>
-                            </div>                                          
-                            <div class="col col-3">
-                                <table>
-                                    <tr>
-                                        <td><img height="43" width="auto" src="cid:dollar" alt=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="title-icon">$300k a $400k</span></td>
-                                    </tr>
-                                </table>
-                            </div>                                          
-                        </div>
-                        <div class="line"></div>
-                        <div class="row" style="margin-top: 1.5rem;">
-                            <div class="col col-2">
+                        <table border="0" cellpadding="0" cellspacing="0" class="main-icon line">
+                          <tr class="row">
+                            <td class="col col-3" align="center" style="padding: 20px 30px 0px 30px;">
+
+                              <table class="box-icon" width="87">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:home" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon">Terreno industrial</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                            <td class="col col-3" align="center" style="padding:20px 30px;">
+
+                              <table class="box-icon">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:etiqueta" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon" style="max-width: 87px;">Alquiler</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                            <td class="col col-3" align="center" style="padding:20px 30px;">
+
+                              <table class="box-icon">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:pointer" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon">Villa Mar&iacute;a del triunfo</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                            <td class="col col-3" align="center" style="padding:20px 30px;">
+
+                              <table class="box-icon">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:dollar" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon">$300k a $400k</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                          </tr>
+                        </table>
+                           
+                        <table>
+                        <tr class="row" style="margin-top: 1.5rem;">
+                            <td class="col col-2">
                                 <table class="card">
                                     <tr>
                                         <td>
-                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                          
+
+                                          <div>
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                              <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
+                                          </div>
+
                                         </td>
                                     </tr>
                                     <tr>
@@ -664,12 +730,34 @@
                                         </td>
                                     </tr>                                    
                                 </table>
-                            </div>
-                            <div class="col col-2">
+                            </td>
+                            <td class="col col-2">
                                 <table class="card">
                                     <tr>
                                         <td>
-                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
                                         </td>
                                     </tr>
                                     <tr>
@@ -690,14 +778,36 @@
                                         </td>
                                     </tr>                                    
                                 </table>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-2">
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="col col-2">
                                 <table class="card">
                                     <tr>
                                         <td>
-                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
                                         </td>
                                     </tr>
                                     <tr>
@@ -718,12 +828,34 @@
                                         </td>
                                     </tr>                                    
                                 </table>
-                            </div>
-                            <div class="col col-2">
+                            </td>
+                            <td class="col col-2">
                                 <table class="card">
                                     <tr>
                                         <td>
-                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
                                         </td>
                                     </tr>
                                     <tr>
@@ -744,14 +876,36 @@
                                         </td>
                                     </tr>                                    
                                 </table>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-2">
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="col col-2">
                                 <table class="card">
                                     <tr>
                                         <td>
-                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
                                         </td>
                                     </tr>
                                     <tr>
@@ -772,12 +926,34 @@
                                         </td>
                                     </tr>                                    
                                 </table>
-                            </div>
-                            <div class="col col-2">
+                            </td>
+                            <td class="col col-2">
                                 <table class="card">
                                     <tr>
                                         <td>
-                                            <img height="195" width="100%" src="cid:departamento" alt="">
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
                                         </td>
                                     </tr>
                                     <tr>
@@ -798,8 +974,9 @@
                                         </td>
                                     </tr>                                    
                                 </table>
-                            </div>
-                        </div>
+                            </td>
+                        </tr>
+                        </table>
 
                         <div class="message-2">
                           <p>Vis&iacute;tanos en <a href="https://babilonia.io/">babilonia.pe</a> para encontrar</p>
