@@ -1,0 +1,1265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <!--[if gte mso 9]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<![endif]-->
+    <title>Simple Transactional Email</title>
+    <style media="all" type="text/css">
+    /* -------------------------------------
+        GLOBAL RESETS
+    ------------------------------------- */
+    
+    body {
+      font-family: Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.3;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    table {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      width: 100%;
+    }
+    
+    table td {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      vertical-align: center;
+    }
+    /* -------------------------------------
+        BODY & CONTAINER
+    ------------------------------------- */
+    
+    body {
+      background-color: #f4f5f6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .body {
+      background-color: #f4f5f6;
+      width: 100%;
+    }
+    
+    .container {
+      margin: 0 auto !important;
+      max-width: 600px;
+      padding: 0;
+      padding-top: 24px;
+      width: 600px;
+    }
+    
+    .content {
+      box-sizing: border-box;
+      display: block;
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 0;
+    }
+    /* -------------------------------------
+        HEADER, FOOTER, MAIN
+    ------------------------------------- */
+    
+    .main {
+      background: #ffffff;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .wrapper {
+      box-sizing: border-box;
+      padding: 0px;
+    }
+    
+    .footer {
+      clear: both;
+      padding-top: 24px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .footer td,
+    .footer p,
+    .footer span,
+    .footer a {
+      color: #9a9ea6;
+      font-size: 16px;
+      text-align: center;
+    }
+    /* -------------------------------------
+        TYPOGRAPHY
+    ------------------------------------- */
+    
+    p {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+    
+    a {
+      color: #0867ec;
+      text-decoration: underline;
+    }
+    /* -------------------------------------
+        BUTTONS
+    ------------------------------------- */
+    
+    .btn {
+      box-sizing: border-box;      
+      width: 100%;
+    }
+    
+    .btn > tbody > tr > td {
+      padding-bottom: 16px;
+    }
+    
+    .btn table {
+      width: auto;
+    }
+    
+    .btn table td {
+      background-color: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .btn a {
+      background-color: #ffffff;
+      border: solid 2px #0867ec;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #0867ec;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      padding: 12px 24px;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+    
+    .btn-primary table td {
+      background-color: #0867ec;
+    }
+    
+    .btn-primary a {
+      background-color: #0867ec;
+      border-color: #0867ec;
+      color: #ffffff;
+    }
+    
+    @media all {
+      .btn-primary table td:hover {
+        background-color: #ec0867 !important;
+      }
+      .btn-primary a:hover {
+        background-color: #ec0867 !important;
+        border-color: #ec0867 !important;
+      }
+    }
+    /* -------------------------------------
+        CONTENT STYLES
+    ------------------------------------- */
+
+    .title{
+        background-color: #083766;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 48px;
+        padding-left: 48px;
+        color: #ffffff;
+    }
+    .title h1 {
+        font-size: 1em;
+    }
+    .title span{
+        color: #ff4069;
+    }
+    .title-message{
+        background-color: #083766;
+        padding-top: 6px;
+        padding-bottom: 18px;
+        padding-right: 48px;
+        padding-left: 48px;
+    }
+    .title-message p{
+        color: #ffffff;
+        font-family: Calibri,sans-serif;
+        text-align: center;
+        font-size: 16px;
+        font-weight: normal;
+        margin: 8px 0px;
+    }
+    .subtitle{
+        background-color: #e6ebf0;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 48px;
+        padding-left: 48px;
+    }
+    .subtitle p{
+        text-align: center;
+        font: small/1.5 Arial,Helvetica,sans-serif;
+        color: #083766;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+    .line{
+        border-bottom: 1px solid #28a7b5 !important;
+        height: 1px;
+        line-height: 0px;
+    }
+    .line-top{
+        border-bottom: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-width: 1px;
+        border-color: #28a7b5 !important;
+        height: 1px;
+        line-height: 0px;
+    }
+    .row {
+        margin: 0 auto;
+        min-width: 320px;
+        max-width: 600px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        background-color: transparent;
+        width: 600px !important;
+    }
+    .row .col {
+        vertical-align: top;
+        text-align: center;
+    }
+    .row .col-10 {
+        width: 600px !important;
+    }
+    /*
+    .main-icon{background: red;}
+    .main-icon .row .col-3{padding: 1rem 0px;}
+    */
+    .box-icon{
+      margin: 1rem auto;
+
+    }
+    .title-icon{
+        font-size:14px;
+        font: small/1.5 Arial,Helvetica,sans-serif;        
+        display:block;
+        margin:auto
+    }
+    .card{
+      margin: 16px 0px;
+    }
+    .card td{
+        padding-right: 12px;
+        padding-left: 24px;
+    }
+    .card h3{
+        font: small/1.5 Arial,Helvetica,sans-serif;
+        font-size: 22px;
+        color: #083766;
+        line-height: 1;
+        font-weight: bold;
+    }
+    .card p{
+        font: small/1.5 Arial,Helvetica,sans-serif;
+        font-size: 14px;
+    }
+    .card img{
+        max-width: 100%;
+        width: 100%;
+        border-radius: 32px;
+        object-fit: cover;
+        height: 195px;
+    }
+    .card a{
+        display: block;
+        width: auto;
+        text-decoration: none ;
+    }
+    .btn{
+        background-color: #ff4069;
+        border-radius: 50px;
+        border: 2px solid #ff4069;
+        color: #ffffff;
+        display: block;
+        font-family: Calibri,sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        padding: 16px 28px;
+        text-decoration: none;
+        min-width: 30px;
+        text-align: center;
+        direction: ltr;
+        letter-spacing: 0px;
+
+        background-color: #ff4069;
+        border-radius: 50px;
+        text-align: center;
+
+        width: auto;
+        display: inline-block;
+    }
+    .message-2{
+      background-color: #083766;
+      padding-top: 28px;
+      padding-bottom: 28px;
+      padding-right: 48px;
+      padding-left: 48px;
+    }
+    .message-2 p{
+      color: #ffffff;
+      text-align: center;
+      font: small/1.5 Arial,Helvetica,sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .message-3{
+      background-color: #e6ebf0;
+      padding-top: 48px;
+      padding-bottom: 48px;
+      padding-right: 0rem;
+      padding-left: 0rem;
+    }
+    .message-3 h3{
+      text-align: left;
+      font-size: 22px;
+      color: #083766;
+      font-family: Calibri,sans-serif;
+      margin-top: 0px;
+    }
+    .message-3 img{
+      width: 100%;
+      max-width: 100%;
+    }
+    .brand{
+      background-color: #083766;
+      padding-top: 64px;
+      padding-bottom: 64px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+    @media only screen and (min-width: 620px) {
+        .title h1{
+            font-size: 2em;
+        }
+        .row {
+          width: 600px !important;
+        }
+        .row .col {
+          vertical-align: top;
+          width: 100%;
+          display: table-cell;
+          vertical-align: top;
+        }
+      
+        .row .col-2 {
+            width: 300px !important;
+        }
+        .row .col-3 {
+            width: 220px !important;
+        }
+        .row .col-4 {
+            width: 150px !important;
+        }
+        .row .col-5 {
+            width: 120px !important;
+        }
+        .row .col-10 {
+            width: 600px !important;
+        }
+        .box-icon,
+        .title-icon{
+            max-width:87px;
+        }
+        .brand .logo{
+          padding-left: 1rem;
+        }
+      
+    }
+    /* -------------------------------------
+        OTHER STYLES THAT MIGHT BE USEFUL
+    ------------------------------------- */
+    
+    .last {
+      margin-bottom: 0;
+    }
+    
+    .first {
+      margin-top: 0;
+    }
+    
+    .align-center {
+      text-align: center;
+    }
+    
+    .align-right {
+      text-align: right;
+    }
+    
+    .align-left {
+      text-align: left;
+    }
+    
+    .text-link {
+      color: #0867ec !important;
+      text-decoration: underline !important;
+    }
+    
+    .clear {
+      clear: both;
+    }
+    
+    .mt0 {
+      margin-top: 0;
+    }
+    
+    .mb0 {
+      margin-bottom: 0;
+    }
+    
+    .preheader {
+      color: transparent;
+      display: none;
+      height: 0;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      mso-hide: all;
+      visibility: hidden;
+      width: 0;
+    }
+    
+    .powered-by a {
+      text-decoration: none;
+    }
+    
+    /* -------------------------------------
+        RESPONSIVE AND MOBILE FRIENDLY STYLES
+    ------------------------------------- */
+    
+    @media only screen and (max-width: 660px) {
+      .main p,
+      .main td {
+        font-size: 16px !important;
+      }
+      .wrapper {
+        padding: 8px !important;
+      }
+      .content {
+        padding: 0 !important;
+      }
+      .container {
+        padding: 0 !important;
+        padding-top: 8px !important;
+        width: 100% !important;
+      }
+      .main {
+        border-left-width: 0 !important;
+        border-radius: 0 !important;
+        border-right-width: 0 !important;
+      }
+      .btn table {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .btn a {
+        font-size: 16px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .table tr td{
+        display: block;
+        width: 100%;
+      }
+
+      .row-container {
+        max-width: 100% !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      .row .col {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        display: block !important;
+      }
+      .row:has(.col-sm-2){
+        display: flex !important;
+        flex-wrap: wrap;
+      }
+      .row .col-sm-2 {
+        width: 50% !important;
+        max-width: 50% !important;
+        min-width: 50% !important;
+        display: inline-block !important;
+      }
+      .row {
+        width: 100% !important;
+      }
+      .message-3 img{
+        max-width: 250px;
+        margin: auto;
+      }
+      .brand .logo img{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+
+      }
+      .message-3 .btn{
+        margin-bottom: 2.3rem;
+      }
+    }
+    /* -------------------------------------
+        PRESERVE THESE STYLES IN THE HEAD
+    ------------------------------------- */
+    
+    @media all {
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+      .apple-link a {
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        text-decoration: none !important;
+      }
+      #MessageViewBody a {
+        color: inherit;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+    }
+    </style>
+    <!--[if mso]>
+    <style type="text/css">
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+    .title { 
+      padding:20px 18px;
+    }
+    .title h1 { 
+      margin:0px;
+      padding:0px;
+      font-size:24px 
+    }
+    .title-message p{
+      font-size:16px
+    }
+    .subtitle p{
+      margin:0px;
+      padding:0px
+    }
+    .title-icon{
+        font-size:14px;
+        font-family:Arial,Helvetica,sans-serif;
+        margin:auto;
+        margin-top:10px;
+        margin-bottom:0px;
+        width:20px;
+    }
+    </style>
+   <![endif]-->
+
+  </head>
+  <body>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+      <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+          <div class="content">
+
+            <!-- START CENTERED WHITE CONTAINER -->
+            <span class="preheader">texto</span>
+
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="main">
+
+                <!-- START MAIN CONTENT AREA -->
+                <tr>
+                    <td class="wrapper" style="max-width: 660px;">
+
+                        <!-- Section title -->
+                        <table border="0" cellpadding="0" cellspacing="0" class="line" style="background-color: #083766;">
+                          <tr>
+                            <td class="title" align="center">
+                              <h1>Nuestra selecci&oacute;n para <span>Juan</span></h1>
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- End Section title -->
+
+                        <!-- Section 1 -->
+                        <table border="0" cellpadding="0" cellspacing="0">                          
+                          <tr>
+                            <td class="title-message" align="center">
+                              <p>Sabemos que encontrar tu inmueble so&ntilde;ado no es una</p>
+                              <p>tarea f&aacute;cil y queremos hacerte la vida m&aacute;s sencilla.</p>
+                            </td>
+                          </tr>                          
+                        </table>
+                        <!-- End Section 1 -->
+
+                        <!-- Section 2 -->
+                        <table class="subtitle" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td>
+                              <p>Tenemos nuevos inmuebles que cumplen con tu b&uacute;squeda</p>
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- End Section 2 -->
+
+                        <!-- Section icons -->
+                        <table border="0" cellpadding="0" cellspacing="0" class="main-icon line" style="border-bottom: 1px solid #28a7b5;">
+                          <tr class="row">
+                            <td class="col col-3" align="center" style="padding: 20px 30px 0px 30px;box-sizing:border-box">
+
+                              
+                              <table class="box-icon" width="87" style="margin-left: auto;margin-right:auto;">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:home" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon">Terreno industrial</p></td>
+                                </tr>
+                              </table>                              
+
+                            </td>
+                            <td class="col col-3" align="center" style="padding:20px 30px;;box-sizing:border-box">
+
+                              <table class="box-icon">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:etiqueta" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon" style="max-width: 87px;">Alquiler</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                            <td class="col col-3" align="center" style="padding:20px 30px;;box-sizing:border-box">
+
+                              <table class="box-icon">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:pointer" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon">Villa Mar&iacute;a del triunfo</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                            <td class="col col-3" align="center" style="padding:20px 30px;;box-sizing:border-box">
+
+                              <table class="box-icon">
+                                <tr>
+                                    <td align="center"><img height="43" width="auto" src="cid:dollar" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><p class="title-icon">$300k a $400k</p></td>
+                                </tr>
+                              </table>
+
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- End Section icons -->
+                        <br>
+
+                        <!-- Body cards -->
+                        <table border="0" cellpadding="0" cellspacing="0">
+                        <tr class="row" style="margin-top: 1.5rem;">
+                            <td class="col col-2">
+                              <table class="card">
+                                  <tr>
+                                      <td>
+                                        
+
+                                        <div>
+                                          <!--[if mso]>
+                                            <v:roundrect 
+                                              xmlns:v="urn:schemas-microsoft-com:vml" 
+                                              xmlns:w="urn:schemas-microsoft-com:office:word"
+                                              arcsize="11%" 
+                                              strokecolor="#ffffff" 
+                                              fill="t"
+                                              style="height:190px;v-text-anchor:middle;width:300px;">
+                                              <v:fill 
+                                                origin="0.5, 0.5"
+                                                position="0.5, 0.5"
+                                                type="tile" 
+                                                src="cid:departamento" 
+                                                color="#556270"
+                                                size="1,1"
+                                                aspect="atleast" />
+                                                  <w:anchorlock/>
+                                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                          <!--<![endif]-->
+                                        </div>
+
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <h3>Terreno industrial en alquiler</h3>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <p>$215,000</p>
+                                          <p>3 dor • 1 bñ • 116 m²</p>
+                                          <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+
+                                        <div>
+                                          <!--[if mso]>
+                                          <v:roundrect 
+                                            xmlns:v="urn:schemas-microsoft-com:vml" 
+                                            xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                            href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                            style="height:60px;v-text-anchor:middle;width:147px;" 
+                                            arcsize="84%" 
+                                            strokecolor="#ffffff" 
+                                            fillcolor="#ff4069">
+                                              <w:anchorlock/>
+                                                <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                  Ver inmueble
+                                                </center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->
+                                          <a href="#">
+                                            <span class="btn">Ver inmueble</span>
+                                          </a>
+                                          <!--<![endif]-->
+                                        </div>
+
+                                          
+                                      </td>
+                                  </tr>                                    
+                              </table>
+                            </td>
+                            <td class="col col-2">
+                              <table class="card">
+                                  <tr>
+                                      <td>
+                                          <!--[if mso]>
+                                            <v:roundrect 
+                                              xmlns:v="urn:schemas-microsoft-com:vml" 
+                                              xmlns:w="urn:schemas-microsoft-com:office:word"
+                                              arcsize="11%" 
+                                              strokecolor="#ffffff" 
+                                              fill="t"
+                                              style="height:190px;v-text-anchor:middle;width:300px;">
+                                              <v:fill 
+                                                origin="0.5, 0.5"
+                                                position="0.5, 0.5"
+                                                type="tile" 
+                                                src="cid:departamento" 
+                                                color="#556270"
+                                                size="1,1"
+                                                aspect="atleast" />
+                                                  <w:anchorlock/>
+                                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->                                           
+                                          <img height="190" width="300" src="cid:departamento" alt="">
+                                          <!--<![endif]-->
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <h3>Terreno industrial en alquiler</h3>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <p>$215,000</p>
+                                          <p>3 dor • 1 bñ • 116 m²</p>
+                                          <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <!--[if mso]>
+                                          <v:roundrect 
+                                            xmlns:v="urn:schemas-microsoft-com:vml" 
+                                            xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                            href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                            style="height:60px;v-text-anchor:middle;width:147px;" 
+                                            arcsize="84%" 
+                                            strokecolor="#ffffff" 
+                                            fillcolor="#ff4069">
+                                              <w:anchorlock/>
+                                                <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                  Ver inmueble
+                                                </center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->
+                                          <a href="#">
+                                            <span class="btn">Ver inmueble</span>
+                                          </a>
+                                          <!--<![endif]-->
+                                      </td>
+                                  </tr>                                    
+                              </table>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="col col-2">                             
+                              <table class="card">
+                                  <tr>
+                                      <td>
+                                          <!--[if mso]>
+                                            <v:roundrect 
+                                              xmlns:v="urn:schemas-microsoft-com:vml" 
+                                              xmlns:w="urn:schemas-microsoft-com:office:word"
+                                              arcsize="11%" 
+                                              strokecolor="#ffffff" 
+                                              fill="t"
+                                              style="height:190px;v-text-anchor:middle;width:300px;">
+                                              <v:fill 
+                                                origin="0.5, 0.5"
+                                                position="0.5, 0.5"
+                                                type="tile" 
+                                                src="cid:departamento" 
+                                                color="#556270"
+                                                size="1,1"
+                                                aspect="atleast" />
+                                                  <w:anchorlock/>
+                                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->                                           
+                                          <img height="190" width="300" src="cid:departamento" alt="">
+                                          <!--<![endif]-->
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <h3>Terreno industrial en alquiler</h3>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <p>$215,000</p>
+                                          <p>3 dor • 1 bñ • 116 m²</p>
+                                          <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <!--[if mso]>
+                                          <v:roundrect 
+                                            xmlns:v="urn:schemas-microsoft-com:vml" 
+                                            xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                            href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                            style="height:60px;v-text-anchor:middle;width:147px;" 
+                                            arcsize="84%" 
+                                            strokecolor="#ffffff" 
+                                            fillcolor="#ff4069">
+                                              <w:anchorlock/>
+                                                <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                  Ver inmueble
+                                                </center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->
+                                          <a href="#">
+                                            <span class="btn">Ver inmueble</span>
+                                          </a>
+                                          <!--<![endif]-->
+                                      </td>
+                                  </tr>                                    
+                              </table>
+                            </td>
+                            <td class="col col-2">                              
+                              <table class="card">
+                                  <tr>
+                                      <td>
+                                          <!--[if mso]>
+                                            <v:roundrect 
+                                              xmlns:v="urn:schemas-microsoft-com:vml" 
+                                              xmlns:w="urn:schemas-microsoft-com:office:word"
+                                              arcsize="11%" 
+                                              strokecolor="#ffffff" 
+                                              fill="t"
+                                              style="height:190px;v-text-anchor:middle;width:300px;">
+                                              <v:fill 
+                                                origin="0.5, 0.5"
+                                                position="0.5, 0.5"
+                                                type="tile" 
+                                                src="cid:departamento" 
+                                                color="#556270"
+                                                size="1,1"
+                                                aspect="atleast" />
+                                                  <w:anchorlock/>
+                                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->                                           
+                                          <img height="190" width="300" src="cid:departamento" alt="">
+                                          <!--<![endif]-->
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <h3>Terreno industrial en alquiler</h3>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <p>$215,000</p>
+                                          <p>3 dor • 1 bñ • 116 m²</p>
+                                          <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left">
+                                          <!--[if mso]>
+                                          <v:roundrect 
+                                            xmlns:v="urn:schemas-microsoft-com:vml" 
+                                            xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                            href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                            style="height:60px;v-text-anchor:middle;width:147px;" 
+                                            arcsize="84%" 
+                                            strokecolor="#ffffff" 
+                                            fillcolor="#ff4069">
+                                              <w:anchorlock/>
+                                                <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                  Ver inmueble
+                                                </center>
+                                              </v:roundrect>
+                                          <![endif]-->
+                                          <!--[if !mso]>-->
+                                          <a href="#">
+                                            <span class="btn">Ver inmueble</span>
+                                          </a>
+                                          <!--<![endif]-->
+                                      </td>
+                                  </tr>                                    
+                              </table>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td class="col col-2">                                
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                          <!--[if mso]>
+                                            <v:roundrect 
+                                              xmlns:v="urn:schemas-microsoft-com:vml" 
+                                              xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                              href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                              style="height:60px;v-text-anchor:middle;width:147px;" 
+                                              arcsize="84%" 
+                                              strokecolor="#ffffff" 
+                                              fillcolor="#ff4069">
+                                                <w:anchorlock/>
+                                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                    Ver inmueble
+                                                  </center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->
+                                            <a href="#">
+                                              <span class="btn">Ver inmueble</span>
+                                            </a>
+                                            <!--<![endif]-->
+                                            
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </td>
+                            <td class="col col-2">                              
+                                <table class="card">
+                                    <tr>
+                                        <td>
+                                            <!--[if mso]>
+                                              <v:roundrect 
+                                                xmlns:v="urn:schemas-microsoft-com:vml" 
+                                                xmlns:w="urn:schemas-microsoft-com:office:word"
+                                                arcsize="11%" 
+                                                strokecolor="#ffffff" 
+                                                fill="t"
+                                                style="height:190px;v-text-anchor:middle;width:300px;">
+                                                <v:fill 
+                                                  origin="0.5, 0.5"
+                                                  position="0.5, 0.5"
+                                                  type="tile" 
+                                                  src="cid:departamento" 
+                                                  color="#556270"
+                                                  size="1,1"
+                                                  aspect="atleast" />
+                                                    <w:anchorlock/>
+                                                    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"><br/></center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->                                           
+                                            <img height="190" width="300" src="cid:departamento" alt="">
+                                            <!--<![endif]-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <h3>Terreno industrial en alquiler</h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <p>$215,000</p>
+                                            <p>3 dor • 1 bñ • 116 m²</p>
+                                            <p>Juan Arica 655, San Juan de Miraflores.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <!--[if mso]>
+                                            <v:roundrect 
+                                              xmlns:v="urn:schemas-microsoft-com:vml" 
+                                              xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                              href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                              style="height:60px;v-text-anchor:middle;width:147px;" 
+                                              arcsize="84%" 
+                                              strokecolor="#ffffff" 
+                                              fillcolor="#ff4069">
+                                                <w:anchorlock/>
+                                                  <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                    Ver inmueble
+                                                  </center>
+                                                </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]>-->
+                                            <a href="#">
+                                              <span class="btn">Ver inmueble</span>
+                                            </a>
+                                            <!--<![endif]-->
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                            </td>
+                        </tr>
+                        </table>
+                        <!-- End Body cards -->
+
+                        <br>
+                        <br>
+
+                        <!-- Section 3 -->
+                        <table border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td class="message-2" align="middle">
+                              <p>Vis&iacute;tanos en <a href="https://babilonia.io/">babilonia.pe</a> para encontrar</p>
+                              <p style="margin-bottom: 0px;">miles de inmuebles ideales para ti</p>
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- End Section 3 -->
+
+                        <!-- Section 4 -->
+                        <table border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td class="message-3" 
+                                align="center" 
+                                style="padding-top: 24px; padding-bottom: 24px; padding-right: 16px; padding-left: 36px;vertical-align: center;">
+
+                              <table border="0" cellpadding="0" cellspacing="0">
+                                <tr class="row">
+                                  <td class="col col-2" align="left" style="vertical-align: center;text-align:left" width="50%">
+                                    <!--[if mso]>
+                                      <br/>
+                                    <![endif]-->
+                                    <h3>¿Sigues sin encontrar lo que buscas?</h3>
+      
+                                    <!--[if mso]>
+                                        <v:roundrect 
+                                          xmlns:v="urn:schemas-microsoft-com:vml" 
+                                          xmlns:w="urn:schemas-microsoft-com:office:word" 
+                                          href="https://babilonia.io/inmueble/oficina-en-alquiler-en-santiago-de-surco-de-54m2-area-900-usd-de-cimiento-raices-80412" 
+                                          style="height:56px;v-text-anchor:middle;width:223px;font-size:16px;margin-right:auto" 
+                                          arcsize="84%" 
+                                          strokecolor="#ffffff" 
+                                          fillcolor="#ff4069">
+                                            <w:anchorlock/>
+                                              <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">
+                                                Ver inmueble
+                                              </center>
+                                            </v:roundrect>
+                                        <![endif]-->
+                                        <!--[if !mso]>-->
+                                        <a href="https://babilonia.io/">
+                                          <span class="btn">Descubre m&aacute;s inmuebles</span>
+                                        </a>
+                                        <!--<![endif]-->                              
+                                  </td>
+                                  <td class="col col-2" align="center" width="50%">
+                                    <img src="cid:promotion" class="promotion" width="294" height="auto">
+                                  </td>
+                                </tr>
+                              </table>
+
+                            </td>
+                          </tr>                                                   
+                        </table>
+                        <!-- End Section 4 -->
+
+                        <!-- Footer Logo -->
+                        <table border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td class="brand" style="padding-top: 64px; padding-bottom: 64px; padding-right: 0; padding-left: 0;">
+
+                              <table border="0" cellpadding="0" cellspacing="0">
+                                <tr class="row">
+                                  <td class="col col-2 logo" align="left" width="50%">
+                                    <img src="cid:logo" width="188" alt="">
+                                  </td>
+                                  <td class="col col-2" align="center" width="50%">
+      
+                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                      <tbody>
+                                        <tr>
+                                          <td><a href="https://www.facebook.com/babilonia.io"><img src="cid:facebook" width="24" height="24" alt=""></a></td>
+                                          <td><a href="https://www.instagram.com/babilonia.io/"><img src="cid:instagram" width="24" height="24" alt=""></a></td>
+                                          <td><a href="https://babilonia.io/"><img src="cid:website" width="24" height="24" alt=""></a></td>
+                                        </tr>
+                                      </tbody>
+                                  </table>
+      
+                                  </td>
+                                </tr>
+                              </table>
+
+                            </td>
+                          </tr>
+                          
+                          
+                          
+                        </table>
+                        <!-- End Footer Logo -->
+
+                    </td>
+                </tr>
+
+                <!-- END MAIN CONTENT AREA -->
+                </table>
+
+            <!-- START FOOTER -->
+            <!--[if mso]>
+              <br/>
+              <br/>
+            <![endif]-->
+            <div class="footer">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="content-block">
+                    <span class="apple-link">Copyright (C) *Babilonia* *Babilonia*. All rights reserved.</span>
+                    <span class="apple-link">*|IFNOT:ARCHIVE_PAGE|**|LIST:DESCRIPTION|**|END:IF|*</span>
+                    <br> Don't like these emails? <a href="http://htmlemail.io/blog">Unsubscribe</a>.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="content-block powered-by">
+                    Powered by <a href="http://htmlemail.io">HTMLemail.io</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- END FOOTER -->
+            
+<!-- END CENTERED WHITE CONTAINER --></div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>
