@@ -66,14 +66,15 @@ class Mail {
                             $item_1 = $item[0]??'';
                             $item_2 = $item[1]??'';
                             $item_3 = $item[2]??'';
-                            $mail->AddEmbeddedImage($item_1, $item_2, $item_3);
+                            $mail->AddEmbeddedImage($item_1, $item_2, $item_3, "base64", "application/octet-stream");
                         }
                     }
 
                     $mail->isHTML(true);
 
-                    $newTempalte = new Templates();
-                    $mail->Body = $newTempalte->render($template, $templateParams);
+                    $newTemplate = new Templates();
+                    $templateRender = $newTemplate->render($template, $templateParams);
+                    $mail->Body = $templateRender;
 
                     // Send the message
                     $mail->send();

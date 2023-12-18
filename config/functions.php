@@ -17,7 +17,24 @@ function dd($content=null){
     print_r($content);
     die();
 }
+function save_image($url_imagen = ""){
 
+    $nombre_imagen = basename($url_imagen);
+
+    $ruta_carpeta = URL_ROOT."temp/";
+
+    if (!file_exists($ruta_carpeta)) {
+        mkdir($ruta_carpeta, 0777, true);
+    }
+
+    $ruta_archivo = $ruta_carpeta . $nombre_imagen;
+    
+    if(file_exists($ruta_archivo)) return $nombre_imagen;
+
+    $resultado = file_put_contents($ruta_archivo, file_get_contents($url_imagen));
+
+    return $nombre_imagen;
+}
 $root = dirname(__DIR__, 1);;
 $parts = explode("/", $root);
 $last_line = end($parts);
