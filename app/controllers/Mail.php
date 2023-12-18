@@ -1,8 +1,9 @@
 <?php
 namespace App\Controllers;
 
-use PHPMailer\PHPMailer\PHPMailer;
+use App\Controllers\Templates;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Mail {
 
@@ -16,6 +17,9 @@ class Mail {
         $name = sanitizeInput($params["name"]??'');
         $toEmail = sanitizeInput($params["email"]??'');
         $subject = sanitizeInput($params["subject"]??"Babilonia ".time());
+
+        $imagenes = $params["imagenes"]??[];
+        $templateParams = $params["templateParams"]??[];
 
         if (empty($name)) {
             $errors[] = 'Name is empty';
@@ -48,25 +52,28 @@ class Mail {
                     $mail->Password = env("APP_MAIL_PASSWORD");
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $mail->Port = env("APP_MAIL_PORT");
-                    
+
                     // Set the sender, recipient, subject, and body of the message
                     $mailFrom = env("APP_MAIL_MAIL_FROM", "info@babilonia.io");
                     $setFrom = env("APP_MAIL_SET_FROM", "Babilonia");                    
                     $mail->setFrom($mailFrom, $setFrom);
                     $mail->addAddress($toEmail);
                     $mail->Subject = $subject;
-                    $mail->AddEmbeddedImage('./assets/images/home.png', 'home', 'home.png');
-                    $mail->AddEmbeddedImage('./assets/images/etiqueta.png', 'etiqueta', 'etiqueta.png');
-                    $mail->AddEmbeddedImage('./assets/images/pointer.png', 'pointer', 'pointer.png');
-                    $mail->AddEmbeddedImage('./assets/images/dollar.png', 'dollar', 'dollar.png');
-                    $mail->AddEmbeddedImage('./assets/images/departamento.jpg', 'departamento', 'departamento.png');
-                    $mail->AddEmbeddedImage('./assets/images/promotion.png', 'promotion', 'promotion.png');
-                    $mail->AddEmbeddedImage('./assets/images/logo.png', 'logo', 'logo.png');
-                    $mail->AddEmbeddedImage('./assets/images/facebook.png', 'facebook', 'facebook.png');
-                    $mail->AddEmbeddedImage('./assets/images/instagram.png', 'instagram', 'instagram.png');
-                    $mail->AddEmbeddedImage('./assets/images/website.png', 'website', 'website.png');
+
+                    if(count($imagenes)>0){
+                        foreach($imagenes as $item){
+
+                            $item_1 = $item[0]??'';
+                            $item_2 = $item[1]??'';
+                            $item_3 = $item[2]??'';
+                            $mail->AddEmbeddedImage($item_1, $item_2, $item_3);
+                        }
+                    }
+
                     $mail->isHTML(true);
-                    $mail->Body = file_get_contents("./views/".$template.".html");
+
+                    $newTempalte = new Templates();
+                    $mail->Body = $newTempalte->render($template, $templateParams);
 
                     // Send the message
                     $mail->send();

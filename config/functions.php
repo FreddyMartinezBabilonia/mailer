@@ -13,9 +13,9 @@ function sanitizeInput($input) {
     $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
     return $input;
 }
-function ddconsole($content=null){
-    echo($content);
-    echo "contenido";
+function dd($content=null){
+    print_r($content);
+    die();
 }
 
 $root = dirname(__DIR__, 1);;
