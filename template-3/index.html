@@ -507,6 +507,16 @@
         width: 100% !important;
         display: block !important;
       }
+      .row:has(.col-sm-2){
+        display: flex !important;
+        flex-wrap: wrap;
+      }
+      .row .col-sm-2 {
+        width: 50% !important;
+        max-width: 50% !important;
+        min-width: 50% !important;
+        display: inline-block !important;
+      }
       .row {
         width: 100% !important;
       }
