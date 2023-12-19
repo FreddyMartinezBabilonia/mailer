@@ -47,4 +47,9 @@ $dotenv->load();
 
 define("EMAIL_TEMPLATE_DEFAULT" , env("APP_MAIL_TEMPLATE_DEFAULT"));
 
+$ruta_partials = URL_ROOT."views/partials/";
+if (!file_exists($ruta_partials)) {
+    mkdir($ruta_partials, 0777, true);
+}
+
 #spl_autoload_register('autoload');
