@@ -48,29 +48,18 @@ Mustache_Autoloader::register();
       $price = $item["price"]??'';
       $imagen = $item["images"][0]["photo"]["url_min"]??'';
       
-      $array = explode("/", $imagen)??[];      
-      $imagen_id = end($array);
-      
       $rowClose = (($key+1) % 2 == 0) ? true : false;
       $BodyClose = (($key+1) == count($response)) ? true : false;
-
-      $nombreImagen = save_image($imagen);
-      $nombre_imagen_sin_extension = pathinfo($nombreImagen, PATHINFO_FILENAME);
 
       array_push($avisos, [
         "url" => env("APP_MAIL_REMOTE_URL"). $url,
         "price" => $price,
-        "imagen" => $nombreImagen,
-        "imagenID" => $nombre_imagen_sin_extension,
+        "imagen" => $imagen,
+        "imagenID" => "",
         "rowClose" => $rowClose,
         "BodyClose" => $BodyClose,
       ]);
 
-      array_push($imagenes, [
-        URL_ROOT. "temp/$nombreImagen",
-        $nombre_imagen_sin_extension,
-        $nombre_imagen_sin_extension
-      ]);
     }
   }
 
